@@ -1,0 +1,524 @@
+<html>
+<head>
+<title>Beyond the Finish Line</title>
+<style>
+body {
+    font-family: Arial, sans-serif;
+    background-color: #eef2f7;
+    margin: 0;
+}
+/* HEADER */
+.header  {
+    background-color: #900600;
+    color: white;
+    text-align: center;
+    padding: 30px;
+
+}
+.header h1 {
+    margin-top: -100px;
+
+}
+/* CONTAINER FLEXBOX */
+.container {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 25px;
+    padding: 40px;
+}
+/* CARD (UNTUK ANIMATION) */
+.card {
+    position: relative;
+    width: 230px;
+
+    /* ANIMATION */
+    opacity: 0;
+    animation: fadeUp 0.8s forwards;
+}
+/* DELAY */
+.card:nth-child(2) { animation-delay: 0.2s; }
+.card:nth-child(3) { animation-delay: 0.4s; }
+.card:nth-child(4) { animation-delay: 0.6s; }
+
+/* CARD INNER (UNTUK HOVER) */
+.card-inner {
+    background-color: white;
+    border-radius: 12px;
+    overflow: hidden;
+    text-align: center;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.2);
+    display: flex;
+    flex-direction: column; /* penting */
+    height: 100%; /* biar penuh */
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+/* HOVER EFFECT */
+.card-inner:hover {
+    transform: translateY(-10px) scale(1.05);
+    box-shadow: 0 10px 25px rgba(0,0,0,0.3);
+}
+/* IMAGE */
+.card-inner img {
+    width: 100%;
+    height: 140px;
+    object-fit: cover;
+}
+/* BADGE */
+.badge {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    background-color: rgba(255, 149, 0, 0.47);
+    color: rgba(1, 0, 16, 0.842);
+    padding: 5px 10px;
+    /* font-size: 12px; */
+    border-radius: 5px;
+    font-weight: 800;
+    font-family: 'Times New Roman', Times, serif;
+}
+
+.badge2 {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    background-color: rgba(0, 255, 204, 0.999);
+    color: white;
+    padding: 5px 10px;
+    /* font-size: 12px; */
+    border-radius: 5px;
+    font-family: 'Times New Roman', Times, serif;
+    font-weight: 800;
+}
+.badge3 {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    background-color: rgb(239, 115, 6);
+    color: white;
+    padding: 5px 10px;
+    /* font-size: 12px; */
+    border-radius: 5px;
+    font-family: 'Times New Roman', Times, serif;
+    font-weight: 800;
+}
+.badge4 {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    background-color: rgb(255, 255, 255);
+    color: rgb(0, 0, 0);
+    padding: 5px 10px;
+    /* font-size: 12px; */
+    border-radius: 5px;
+    font-family: 'Times New Roman', Times, serif;
+    font-weight: 800;
+}
+
+.badge5 {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    background-color: rgb(0, 0, 0);
+    color: rgb(255, 255, 255);
+    padding: 5px 10px;
+    /* font-size: 12px; */
+    border-radius: 5px;
+    font-family: 'Times New Roman', Times, serif;
+    font-weight: 800;
+}
+
+.badge6 {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    background-color: rgb(131, 102, 27);
+    color: rgb(255, 255, 255);
+    padding: 5px 10px;
+    /* font-size: 12px; */
+    border-radius: 5px;
+    font-family: 'Times New Roman', Times, serif;
+    font-weight: 800;
+}
+
+.badge7 {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    background-color: rgba(106, 79, 9, 0.796);
+    color: rgb(255, 255, 255);
+    padding: 5px 10px;
+    /* font-size: 12px; */
+    border-radius: 5px;
+    font-family: 'Times New Roman', Times, serif;
+    font-weight: 800;
+}
+
+.badge8 {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    background-color: rgba(14, 251, 6, 0.796);
+    color: rgb(255, 255, 255);
+    padding: 5px 10px;
+    /* font-size: 12px; */
+    border-radius: 5px;
+    font-family: 'Times New Roman', Times, serif;
+    font-weight: 800;
+}
+
+.badge9 {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    background-color: oklch(57.743% 0.23359 28.905 / 0.91);
+    color: rgb(255, 255, 255);
+    padding: 5px 10px;
+    /* font-size: 12px; */
+    border-radius: 5px;
+    font-family: 'Times New Roman', Times, serif;
+    font-weight: 800;
+}
+
+.badge10 {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    background-color: rgba(48, 5, 156, 0.796);
+    color: rgb(255, 255, 255);
+    padding: 5px 10px;
+    /* font-size: 12px; */
+    border-radius: 5px;
+    font-family: 'Times New Roman', Times, serif;
+    font-weight: 800;
+}
+.LOGO img {
+    width: 150;
+    height: 150;
+    margin-left: -1200;
+    /* display: flex; */
+    
+}
+/* CONTENT */
+.content {
+    padding: 15px;
+    display: flex;
+    flex-direction: column;
+    flex-grow: 1; /* isi akan dorong tombol ke bawah */
+}
+
+
+.GEDE {
+    font-family: 'Times New Roman', Times, serif;
+    font-size: 35px;
+}
+.BESAR {
+    font-family: 'Times New Roman', Times, serif;
+    font-size: 30px;
+    color: #eeae0bee;
+    font-weight: 600;
+}
+/* .YUHU {
+    font-family: 'Times New Roman', Times, serif;
+    font-weight: 800;
+    
+
+} */
+
+.content h3 {
+    margin: 10px 0;
+}
+
+.content p {
+    /* font-size: 14px; */
+    color: #3e3c3c;
+    font-style: italic;
+    font-weight: 800;
+}
+
+/* BUTTON */
+.btn {
+    display: inline-block;
+    margin-top: auto;
+    padding: 10px 15px;
+    background-color: #ff7b00f7;
+    color: white;
+    text-decoration: none;
+    border-radius: 6px;
+}
+
+.btn2 {
+    display: inline-block;
+    margin-top: auto;
+    padding: 10px 15px;
+    background-color: #00e1fffc;
+    color: white;
+    text-decoration: none;
+    border-radius: 6px;
+}
+.btn3 {
+    display: inline-block;
+    margin-top: auto;
+    padding: 10px 15px;
+    background-color: #ff9900;
+    color: white;
+    text-decoration: none;
+    border-radius: 6px;
+}
+
+.btn4 {
+    display: inline-block;
+    margin-top: auto;
+    padding: 10px 15px;
+    background-color: #0800ff;
+    color: white;
+    text-decoration: none;
+    border-radius: 6px;
+}
+
+.btn5 {
+    display: inline-block;
+    margin-top: auto;
+    padding: 10px 15px;
+    background-color: #0b0b0b;
+    color: white;
+    text-decoration: none;
+    border-radius: 6px;
+}
+
+.btn6 {
+    display: inline-block;
+    margin-top: auto;
+    padding: 10px 15px;
+    background-color: #665918;
+    color: white;
+    text-decoration: none;
+    border-radius: 6px;
+}
+
+.btn7 {
+    display: inline-block;
+    margin-top: auto;
+    padding: 10px 15px;
+    background-color: #71452C;
+    color: white;
+    text-decoration: none;
+    border-radius: 6px;
+}
+
+.btn8 {
+    display: inline-block;
+    margin-top: auto;
+    padding: 10px 15px;
+    background-color: #3cff00;
+    color: white;
+    text-decoration: none;
+    border-radius: 6px;
+}
+
+.btn9 {
+    display: inline-block;
+    margin-top: auto;
+    padding: 10px 15px;
+    background-color: #ff1e05;
+    color: white;
+    text-decoration: none;
+    border-radius: 6px;
+}
+
+.btn10 {
+    display: inline-block;
+    margin-top: auto;
+    padding: 10px 15px;
+    background-color: #3f03a7;
+    color: white;
+    text-decoration: none;
+    border-radius: 6px;
+}
+/* BUTTON HOVER */
+.btn:hover {
+    background-color: #ea8b16d0;
+}
+.btn2:hover {
+    background-color: #16c7eac4;
+}
+.btn3:hover {
+    background-color: #ff9900;
+}
+.btn4:hover {
+    background-color: #0d20ed;
+}
+.btn5:hover {
+    background-color: #070707b6;
+}
+.btn6:hover {
+    background-color: #83d14ab6;
+}
+
+.btn7:hover {
+    background-color: #71452C;
+}
+
+.btn8:hover {
+    background-color: #40ff00;
+}
+.btn9:hover {
+    background-color: #ff1e05;
+}
+
+.btn10:hover {
+    background-color: #4c0390;
+}
+
+/* ANIMATION KEYFRAMES */
+@keyframes fadeUp {
+    from {
+        opacity: 0;
+        transform: translateY(30px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+</style>
+</head>
+
+<body>
+    
+<div class="header">
+    <div class="LOGO">
+        <img src="uma_musume-removebg-preview.png" alt="">
+    </div>
+
+    <h1 class="GEDE">UMA MUSUME </h1>
+    <p class="BESAR">Every race tells a story, and these five are unforgettable.</p>
+</div>
+
+<div class="container">
+
+    <div class="card">
+        <div class="card-inner">
+            <div class="badge">TOP</div>
+            <img src="https://cdn.dribbble.com/userupload/44358277/file/6418a84a160b0d3c86f87d665966c152.png">
+            <div class="content">
+                <h3>AGNES TACHYON</h3>
+                <p>Brilliance and madness often run together</p>
+                <a href="https://umamusu.wiki/Agnes_Tachyon" target="_blank" class="btn">DETAIL</a>
+            </div>
+        </div>
+    </div>
+
+    <div class="card">
+        <div class="card-inner">
+            <div class="badge2">TOP</div>
+            <img src="https://preview.redd.it/cheval-grand-art-by-%E3%82%89%E3%81%BF%E3%82%83%E3%82%A8%E3%83%AB-on-pixiv-v0-idrhv3i6ovcd1.png?auto=webp&s=fc4a142a1a00577bbd4addca47b80c3441b28e8a">
+            <div class="content">
+                <h3>CHERVAL GRAND</h3>
+                <p>Pain fades, but the struggle shapes you</p>
+                <a href="https://umamusu.wiki/Cheval_Grand" target="_blank" class="btn2">DETAIL</a>
+            </div>
+        </div>
+    </div>
+
+    <div class="card">
+        <div class="card-inner">
+            <div class="badge3">TOP</div>
+            <img src="https://i.ytimg.com/vi/9CYTqIxYNrc/hq720.jpg?sqp=-oaymwEhCK4FEIIDSFryq4qpAxMIARUAAAAAGAElAADIQj0AgKJD&rs=AOn4CLBNEHKfaOu7d-BaVBrZOZ_c8DAFXg">
+            <div class="content">
+                <h3>T.M OPERA O</h3>
+                <p>A king never stops chasing victory</p>
+                <a href="https://umamusu.wiki/T.M._Opera_O" target="_blank" class="btn3">DETAIL</a>
+            </div>
+        </div>
+    </div>
+
+    <div class="card">
+        <div class="card-inner">
+            <div class="badge4">TOP</div>
+            <img src="https://i.ytimg.com/vi/r-1zmHovnGI/maxresdefault.jpg">
+            <div class="content">
+                <h3>OGURI CAP</h3>
+                <p>Oguri Cap proved that hard work can surpass talent.</p>
+                <a href="https://umamusu.wiki/Oguri_Cap" target="_blank" class="btn4">DETAIL</a>
+            </div>
+        </div>
+    </div>
+
+    <div class="card">
+        <div class="card-inner">
+            <div class="badge5">TOP</div>
+            <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQaQdOCbOYK3DmfGnMBVdOs2rSFOJJdt-0AZw&s">
+            <div class="content">
+                <h3>MANHATTAN CAFE</h3>
+                <p>She runs quietly, but leaves a lasting shadow</p>
+                <a href="https://umamusu.wiki/Manhattan_Cafe" target="_blank" class="btn5">DETAIL</a>
+            </div>
+        </div>
+    </div> 
+
+    <div class="card">
+        <div class="card-inner">
+            <div class="badge6">TOP</div>
+            <img src="https://pbs.twimg.com/media/Gu4kxZpWwAALu4d.jpg">
+            <div class="content">
+                <h3>DREAM JOURNEY</h3>
+                <p>Behind every step lies a dream worth chasing</p>
+                <a href="https://umamusu.wiki/Dream_Journey" target="_blank" class="btn6">DETAIL</a>
+            </div>
+        </div>
+    </div>
+
+    <div class="card">
+        <div class="card-inner">
+            <div class="badge7">TOP</div>
+            <img src="https://images7.alphacoders.com/130/thumb-1920-1304082.jpg">
+            <div class="content">
+                <h3>TOKAI TEIO</h3>
+                <p>No matter how many times she falls, she always rises again</p>
+                <a href="https://umamusu.wiki/Tokai_Teio" target="_blank" class="btn7">DETAIL</a>
+            </div>
+        </div>
+    </div>
+
+    <div class="card">
+        <div class="card-inner">
+            <div class="badge8">TOP</div>
+            <img src="https://wallpapercave.com/wp/wp16022871.jpg">
+            <div class="content">
+                <h3>SILENT SUZUKA</h3>
+                <p>She runs toward a horizon only she can see</p>
+                <a href="https://umamusu.wiki/Silent_Suzuka" target="_blank" class="btn8">DETAIL</a>
+            </div>
+        </div>
+    </div>
+
+    <div class="card">
+        <div class="card-inner">
+            <div class="badge9">TOP</div>
+            <img src="https://seputarotaku.com/storage/gallery/gallery_1752041400_30.webp">
+            <div class="content">
+                <h3>GOLD SHIP</h3>
+                <p>Unpredictable, unstoppable, unforgettable</p>
+                <a href="https://umamusu.wiki/Gold_Ship" target="_blank" class="btn9">DETAIL</a>
+            </div>
+        </div>
+    </div>
+
+    <div class="card">
+        <div class="card-inner">
+            <div class="badge10">TOP</div>
+            <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcR8-qRUQvlwO2IlrsRSGnXs5NhW4ivE52XM9w&s">
+            <div class="content">
+                <h3>FOREVER YOUNG</h3>
+                <p>“A spirit that keeps running beyond every limit</p>
+                <a href="https://umamusu.wiki/Forever_Young" target="_blank" class="btn10">DETAIL</a>
+            </div>
+        </div>
+    </div>
+
+</div>
+
+</div>
+</body>
+</html>
