@@ -9,15 +9,16 @@ body {
     margin: 0;
 }
 /* HEADER */
-.header  {
+.header {
     background-color: #900600;
     color: white;
-    text-align: center;
-    padding: 30px;
-
+    display: flex;
+    align-items: center;
+    padding: 30px 40px;
+    position: relative;
 }
 .header h1 {
-    margin-top: -100px;
+    margin-top: 0;
 
 }
 /* CONTAINER FLEXBOX */
@@ -31,7 +32,7 @@ body {
 /* CARD (UNTUK ANIMATION) */
 .card {
     position: relative;
-    width: 230px;
+    width: 300px;
 
     /* ANIMATION */
     opacity: 0;
@@ -60,10 +61,27 @@ body {
     box-shadow: 0 10px 25px rgba(0,0,0,0.3);
 }
 /* IMAGE */
+.card-inner {
+    background-color: white;
+    border-radius: 12px;
+    overflow: hidden;
+    text-align: center;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.2);
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
 .card-inner img {
     width: 100%;
-    height: 140px;
+    height: 180px;
     object-fit: cover;
+    transition: 0.3s;
+}
+
+.card-inner:hover img {
+    transform: scale(1.05);
 }
 /* BADGE */
 .badge {
@@ -429,12 +447,19 @@ body {
     font-weight: 900;
 }
 .LOGO img {
-    width: 350px;
-    height: 150px;
-    margin-left: -1200;
-    /* display: flex; */
-    
+    width: 320px;
+    height: 200px;
 }
+
+
+.text {
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+    text-align: center;
+    color: white;
+}
+
 /* CONTENT */
 .content {
     padding: 15px;
@@ -869,23 +894,23 @@ body {
 /* responsive hp */
 @media screen and (max-width: 768px) {
     
-    .header {
-        padding: 20px 10px;
-    }
+.header {
+    flex-direction: column;
+    text-align: center;
+    padding: 20px 10px;
+}
     .header h1 {
         margin-top: 10px;
     }
     .LOGO img {
-        width: 150px;
-        height: auto;
-        display: block;
-        margin: 0 auto 10px;
-    }
+    width: 150px;
+    margin-bottom: 10px;
+}
     .GEDE {
-        font-size: 24px;
+        font-size: 40px;
     }
     .BESAR {
-        font-size: 10px;
+        font-size: 40px;
         line-height: 1.4;
         padding: 0 10px;
     }
@@ -897,11 +922,13 @@ body {
         padding: 20px;
     }
     .card {
-        width: 160px;
+        width: 200px;
     }
     .card-inner img {
-        height: 95px;
-        object-fit: cover;
+    width: 100%;
+    height: 800px; /* gambar lebih besar */
+    object-fit: cover;
+}
 
     }
     .content {
@@ -977,7 +1004,7 @@ body {
         padding: 4px 8px;
     }
     
-}
+
 
     
 
@@ -990,13 +1017,20 @@ body {
 
 <body>
     
+    
 <div class="header">
+
     <div class="LOGO">
-        <img src="https://kartt30.github.io/Beyond-the-Finish-Line/Umamusume-Pretty-Derby-Logo%20(1).jpg" alt="">
+        <img src="https://kartt30.github.io/Beyond-the-Finish-Line/Umamusume-Pretty-Derby-Logo%20(1).jpg">
     </div>
 
-    <h1 class="GEDE">UMA MUSUME </h1>
-    <p class="BESAR">Every race tells a story, and these five are unforgettable.</p>
+    <div class="text">
+        <h1 class="GEDE">UMA MUSUME</h1>
+        <p class="BESAR">
+            Every race tells a story, and these five are unforgettable.
+        </p>
+    </div>
+
 </div>
 
 <div class="container">
@@ -1199,7 +1233,7 @@ body {
             <img src="https://i.pinimg.com/736x/2b/dd/5a/2bdd5aef8aeaea7a425ad27ca9365ddf.jpg">
             <div class="content">
                 <h3>AGNES DIGITAL</h3>
-                <p>“Unpredictable speed, driven by pure passion</p>
+                <p>Unpredictable speed, driven by pure passion</p>
                 <a href="https://umamusu.wiki/Agnes_Digital" target="_blank" class="btn17">DETAIL</a>
             </div>
         </div>
@@ -1340,9 +1374,6 @@ body {
         </div>
     </div>
 
-
-
-</div>
 
 </div>
 </body>
