@@ -7,37 +7,42 @@
         font-family: Arial, sans-serif;
         background-color: #eef2f7;
         margin: 0;
+        overflow-x: hidden;
       }
       /* HEADER */
       .header {
-        background-color: #900600;
+        background-color: #0a0000;
         color: white;
         display: flex;
         align-items: center;
-        justify-content: space-between;
-        flex-wrap: wrap;
-        gap: 20px;
-        padding: 30px 24px;
+        padding: 28px 56px;
         position: relative;
-      }
-      .header h1 {
-        margin: 0;
-        font-size: 2.8rem;
-      }
-      .text {
-        position: static;
-        transform: none;
-        text-align: left;
-        width: 100%;
-        max-width: 700px;
+        min-height: 100px;
       }
       .LOGO img {
-        width: 170px;
-        max-width: 100%;
-        height: auto;
+        width: 300px;
+        height: 250px;
+        object-fit: contain;
+        flex-shrink: 0;
+        opacity: 0.92;
+        position: relative;
+        z-index: 1;
+      }
+      .text {
+        position: absolute;
+        left: 50%;
+        transform: translateX(-50%);
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        gap: 8px;
+        text-align: center;
+        white-space: nowrap;
       }
       .container {
-        width: min(100%, 1200px);
+        width: 100%;
+        max-width: 1200px;
+        box-sizing: border-box;
         margin: 0 auto;
         display: grid;
         grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
@@ -472,18 +477,6 @@
         font-family: "Times New Roman", Times, serif;
         font-weight: 900;
       }
-      .LOGO img {
-        width: 320px;
-        height: 200px;
-      }
-
-      .text {
-        position: absolute;
-        left: 50%;
-        transform: translateX(-50%);
-        text-align: center;
-        color: white;
-      }
 
       /* CONTENT */
       .content {
@@ -494,14 +487,23 @@
       }
 
       .GEDE {
-        font-family: "Times New Roman", Times, serif;
-        font-size: 35px;
+        font-family: "Georgia", "Times New Roman", serif;
+        font-size: 1.75rem;
+        font-weight: 400;
+        letter-spacing: 0.5em;
+        text-transform: uppercase;
+        margin: 0;
+        color: #ffffff;
+        line-height: 1.1;
       }
       .BESAR {
-        font-family: "Times New Roman", Times, serif;
-        font-size: 30px;
-        color: #eeae0bee;
-        font-weight: 600;
+        font-family: "Georgia", serif;
+        font-size: 0.75rem;
+        font-weight: 400;
+        letter-spacing: 0.2em;
+        color: rgba(255, 255, 255, 0.48);
+        font-style: italic;
+        margin: 0;
       }
       /* .YUHU {
     font-family: 'Times New Roman', Times, serif;
@@ -918,26 +920,35 @@
       @media screen and (max-width: 768px) {
         .header {
           flex-direction: column;
-          text-align: center;
-          padding: 22px 14px;
-        }
-        .header h1 {
-          margin-top: 10px;
+          align-items: center;
+          padding: 20px 16px 24px;
+          gap: 0;
+          min-height: unset;
         }
         .LOGO img {
-          width: 140px;
-          margin-bottom: 12px;
+          width: 110px;
+          height: auto;
+          position: static;
+          opacity: 1;
+          margin-bottom: 16px;
         }
         .text {
+          position: static;
+          transform: none;
+          white-space: normal;
+          align-items: center;
           text-align: center;
+          border-top: 1px solid rgba(255, 255, 255, 0.14);
+          padding-top: 16px;
+          width: 100%;
         }
         .GEDE {
-          font-size: 30px;
+          font-size: 1.3rem;
+          letter-spacing: 0.38em;
         }
         .BESAR {
-          font-size: 24px;
-          line-height: 1.4;
-          padding: 0 10px;
+          font-size: 0.7rem;
+          letter-spacing: 0.14em;
         }
         .container {
           grid-template-columns: repeat(2, minmax(0, 1fr));
@@ -953,7 +964,8 @@
           object-fit: cover;
         }
         .content {
-          padding: 10px;
+          padding: 10px 10px 12px;
+          overflow: hidden;
         }
         .content h3 {
           font-size: 15px;
@@ -1023,26 +1035,23 @@
           font-size: 11px;
           padding: 4px 8px;
         }
-        .pagination {
-          margin: 28px 0;
-        }
       }
 
       @media screen and (max-width: 480px) {
         .header {
-          padding: 18px 10px;
+          padding: 18px 12px 22px;
         }
         .LOGO img {
-          width: 125px;
-        }
-        .text {
-          text-align: center;
+          width: 90px;
+          height: auto;
+          margin-bottom: 14px;
         }
         .GEDE {
-          font-size: 26px;
+          font-size: 1.1rem;
+          letter-spacing: 0.35em;
         }
         .BESAR {
-          font-size: 20px;
+          font-size: 0.68rem;
         }
         .card-inner img {
           height: 180px;
@@ -1075,14 +1084,52 @@
         .btn26,
         .btn27,
         .btn28 {
+          display: block;
           width: 100%;
+          box-sizing: border-box;
           text-align: center;
         }
       }
 
+      .pagination {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        gap: 6px;
+        padding: 32px 16px 48px;
+        flex-wrap: wrap;
+      }
+      .pagination a {
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        min-width: 40px;
+        height: 40px;
+        padding: 0 12px;
+        border: 1px solid #d0d0d0;
+        border-radius: 4px;
+        color: #333;
+        text-decoration: none;
+        font-size: 14px;
+        font-family: Arial, sans-serif;
+        background: white;
+        transition: background 0.2s, color 0.2s, border-color 0.2s;
+        cursor: pointer;
+      }
+      .pagination a:hover {
+        background: #f5f5f5;
+        border-color: #aaa;
+      }
       .pagination .active {
         background: #900600;
         color: white;
+        border-color: #900600;
+        font-weight: 600;
+        pointer-events: none;
+      }
+      .pagination .disabled {
+        opacity: 0.3;
+        pointer-events: none;
       }
     </style>
   </head>
@@ -1092,6 +1139,7 @@
       <div class="LOGO">
         <img
           src="https://kartt30.github.io/Beyond-the-Finish-Line/Umamusume-Pretty-Derby-Logo%20(1).jpg"
+          alt="Uma Musume Pretty Derby Logo"
         />
       </div>
 
@@ -1386,7 +1434,7 @@
         <div class="card-inner">
           <div class="badge16">TOP</div>
           <img
-            src="https://c4.wallpaperflare.com/wallpaper/1001/675/689/symboli-rudolf-uma-musume-long-hair-brunette-horse-girls-anime-hd-wallpaper-preview.jpg"
+            src="https://i.pinimg.com/736x/ce/b1/43/ceb14329913503abf04bb65fbbc80b61.jpg"
           />
           <div class="content">
             <h3>SYMBOLY RUDOLF</h3>
@@ -1627,12 +1675,81 @@
     </div>
 
     <!-- PAGINATION -->
-    <div class="pagination">
-      <a href="#">«</a>
-      <a href="#" class="active">1</a>
-      <a href="#">2</a>
-      <a href="#">3</a>
-      <a href="#">»</a>
-    </div>
+    <div class="pagination"></div>
+
+  <script>
+    (function () {
+      var PER_PAGE = 8;
+      var BREAK = 768;
+      var page = 1;
+
+      function allCards() {
+        return Array.from(document.querySelectorAll('.container .card'));
+      }
+
+      function isMobile() {
+        return window.innerWidth <= BREAK;
+      }
+
+      function totalPages() {
+        return isMobile() ? Math.ceil(allCards().length / PER_PAGE) : 1;
+      }
+
+      function goTo(p) {
+        var t = totalPages();
+        page = Math.max(1, Math.min(p, t));
+
+        allCards().forEach(function (card, i) {
+          if (!isMobile()) {
+            card.style.display = '';
+          } else {
+            var start = (page - 1) * PER_PAGE;
+            card.style.display = (i >= start && i < start + PER_PAGE) ? '' : 'none';
+          }
+        });
+
+        buildPagination();
+      }
+
+      function buildPagination() {
+        var nav = document.querySelector('.pagination');
+        if (!nav) return;
+        var t = totalPages();
+        nav.innerHTML = '';
+
+        if (!isMobile()) return;
+
+        function makeBtn(label, target, isActive, isDisabled) {
+          var a = document.createElement('a');
+          a.href = '#';
+          a.textContent = label;
+          if (isActive) a.className = 'active';
+          if (isDisabled) a.className = 'disabled';
+          a.addEventListener('click', function (e) {
+            e.preventDefault();
+            if (!isDisabled && !isActive) {
+              goTo(target);
+              window.scrollTo({ top: 0, behavior: 'smooth' });
+            }
+          });
+          nav.appendChild(a);
+        }
+
+        makeBtn('«', page - 1, false, page === 1);
+        for (var i = 1; i <= t; i++) {
+          makeBtn(i, i, i === page, false);
+        }
+        makeBtn('»', page + 1, false, page === t);
+      }
+
+      var resizeTimer;
+      window.addEventListener('resize', function () {
+        clearTimeout(resizeTimer);
+        resizeTimer = setTimeout(function () { goTo(1); }, 150);
+      });
+
+      goTo(1);
+    })();
+  </script>
   </body>
 </html>
